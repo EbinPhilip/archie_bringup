@@ -1,0 +1,13 @@
+<launch>
+    <param
+        name="robot_description"
+        command="$(find xacro)/xacro $(find archie_description)/urdf/archie.xacro" />
+
+    <include file="$(archie_bringup)/launch/archie_camera.launch" />
+    <include file="$(archie_bringup)/launch/archie_lidar.launch" />
+
+    <node
+        name="robot_state_publisher"
+        pkg="robot_state_publisher"
+        type="robot_state_publisher" /> .
+</launch>
