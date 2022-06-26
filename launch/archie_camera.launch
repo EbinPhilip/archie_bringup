@@ -1,4 +1,4 @@
 <launch>
     <include file="$(find realsense2_camera)/launch/rs_aligned_depth.launch"/>
     <include file="$(find camera_tilt_control)/launch/camera_tilt_control.launch"/>
-.</launch>
+</launch>
