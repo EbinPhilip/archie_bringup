@@ -1,0 +1,7 @@
+<launch>
+    <arg name="map_file" default="$(find archie_bringup)/maps/my_map.yaml" />
+
+    <include file="$(find archie_bringup)/launch/robot.launch" />
+    
+    <node name="map_server" pkg="map_server" type="map_server" args= "$(arg map_file)"/>
+</launch>

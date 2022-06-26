@@ -1,0 +1,17 @@
+<launch>
+    <param
+        name="robot_description"
+        command="$(find xacro)/xacro $(find archie_description)/urdf/archie.xacro" />
+
+    <include file="$(find archie_bringup)/launch/_camera.launch" />
+    <include file="$(find archie_bringup)/launch/_lidar.launch" />
+    <include file="$(find archie_bringup)/launch/_mavros.launch" />
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_odom" args="0 0 0 0 0 0 1 map odom" />
+    <node name="publish_odom_transform" pkg="archie_bringup" type="publish_odom_transform.py" />
+
+    <node
+        name="robot_state_publisher"
+        pkg="robot_state_publisher"
+        type="robot_state_publisher" />
+</launch>
