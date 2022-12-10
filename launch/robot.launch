@@ -3,12 +3,16 @@
         name="robot_description"
         command="$(find xacro)/xacro $(find archie_description)/urdf/archie.xacro" />
 
-    <include file="$(find archie_bringup)/launch/_camera.launch" />
+    <include file="$(find realsense2_camera)/launch/rs_rgbd.launch">
+        <arg name="depth_align"                value="true"/>
+    </include>
     <include file="$(find archie_bringup)/launch/_lidar.launch" />
     <include file="$(find archie_bringup)/launch/_mavros.launch" />
 
     <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_odom" args="0 0 0 0 0 0 1 map odom" />
     <node name="publish_odom_transform" pkg="archie_bringup" type="publish_odom_transform.py" />
+
+    <include file="$(find archie_control)/launch/trajectory_control.launch" />
 
     <node
         name="robot_state_publisher"
