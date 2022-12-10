@@ -1,0 +1,16 @@
+<launch>
+    <arg name="map_file" default="$(find archie_bringup)/maps/my_map.yaml" />
+
+    <include file="$(find archie_bringup)/launch/localization.launch">
+        <arg name="map_file" value="$(arg map_file)" />
+    </include>
+
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+        <rosparam file="$(find archie_bringup)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find archie_bringup)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find archie_bringup)/config/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find archie_bringup)/config/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find archie_bringup)/config/base_local_planner_params.yaml" command="load" />
+        <remap from="/cmd_vel" to="/mavros/setpoint_velocity/cmd_vel_unstamped" />
+    </node>
+</launch> 
