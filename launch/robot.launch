@@ -4,7 +4,7 @@
         command="$(find xacro)/xacro $(find archie_description)/urdf/archie.xacro" />
 
     <include file="$(find realsense2_camera)/launch/rs_rgbd.launch">
-        <arg name="depth_align"                value="true"/>
+        <arg name="align_depth"                value="true"/>
     </include>
     <include file="$(find archie_bringup)/launch/_lidar.launch" />
     <include file="$(find archie_bringup)/launch/_mavros.launch" />
