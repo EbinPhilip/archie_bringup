@@ -76,16 +76,15 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          back_wall:
+          arm_base:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-            Value: true
+          base_footprint:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
           base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          camera_assembly:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -108,20 +107,6 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          carriage_base:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          carriage_link_base:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          carriage_slider:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
           gripper:
             Alpha: 1
             Show Axes: false
@@ -131,12 +116,17 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          ground:
+          laser:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
           left_finger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_wheel:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -156,21 +146,17 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          payload:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
           right_finger:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          shoulder:
+          right_wheel:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          side_wall:
+          shoulder:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -208,7 +194,7 @@ Visualization Manager:
         Goal State Color: 250; 128; 0
         Interactive Marker Size: 0
         Joint Violation Color: 255; 0; 255
-        Planning Group: scorpius_arm
+        Planning Group: sting_arm
         Query Goal State: false
         Query Start State: false
         Show Workspace: false
@@ -231,16 +217,15 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          back_wall:
+          arm_base:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-            Value: true
+          base_footprint:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
           base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          camera_assembly:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -263,20 +248,6 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          carriage_base:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          carriage_link_base:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          carriage_slider:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
           gripper:
             Alpha: 1
             Show Axes: false
@@ -286,12 +257,17 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          ground:
+          laser:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
           left_finger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_wheel:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -311,21 +287,17 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          payload:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
           right_finger:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          shoulder:
+          right_wheel:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          side_wall:
+          shoulder:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -362,19 +334,15 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        apple1:
+        arm_base:
           Value: false
-        apple2:
-          Value: true
-        back_wall:
-          Value: false
-        banana1:
+        base_footprint:
           Value: false
         base_link:
           Value: false
-        camera_aligned_depth_to_color_frame:
+        base_link_frd:
           Value: false
-        camera_assembly:
+        camera_aligned_depth_to_color_frame:
           Value: false
         camera_base:
           Value: false
@@ -392,19 +360,15 @@ Visualization Manager:
           Value: false
         camera_tilt:
           Value: false
-        carriage_base:
-          Value: false
-        carriage_link_base:
-          Value: false
-        carriage_slider:
-          Value: false
         gripper:
           Value: false
         gripper_frame:
           Value: false
-        ground:
+        laser:
           Value: false
         left_finger:
+          Value: false
+        left_wheel:
           Value: false
         lower_arm_back:
           Value: false
@@ -412,19 +376,19 @@ Visualization Manager:
           Value: false
         lower_arm_middle:
           Value: false
-        payload:
+        map:
           Value: false
-        pick:
-          Value: true
-        place:
-          Value: true
-        pre_pick:
-          Value: true
+        map_ned:
+          Value: false
+        odom:
+          Value: false
+        odom_ned:
+          Value: false
         right_finger:
           Value: false
-        shoulder:
+        right_wheel:
           Value: false
-        side_wall:
+        shoulder:
           Value: false
         sting_base:
           Value: false
@@ -437,35 +401,13 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        base_link:
-          apple1:
+        map:
+          map_ned:
             {}
-          apple2:
-            pick:
-              {}
-            pre_pick:
-              {}
-          back_wall:
-            {}
-          banana1:
-            {}
-          camera_assembly:
-            camera_tilt:
-              camera_base:
-                camera_bottom_screw_frame:
-                  camera_link:
-                    camera_aligned_depth_to_color_frame:
-                      camera_color_optical_frame:
-                        {}
-                    camera_color_frame:
-                      {}
-                    camera_depth_frame:
-                      camera_depth_optical_frame:
-                        {}
-          carriage_link_base:
-            carriage_base:
-              carriage_slider:
-                payload:
+          odom:
+            base_footprint:
+              base_link:
+                arm_base:
                   sting_base:
                     shoulder:
                       upper_arm:
@@ -478,12 +420,28 @@ Visualization Manager:
                                     {}
                                   right_finger:
                                     {}
-          ground:
-            {}
-          place:
-            {}
-          side_wall:
-            {}
+                base_link_frd:
+                  {}
+                camera_tilt:
+                  camera_base:
+                    camera_bottom_screw_frame:
+                      camera_link:
+                        camera_aligned_depth_to_color_frame:
+                          camera_color_optical_frame:
+                            {}
+                        camera_color_frame:
+                          {}
+                        camera_depth_frame:
+                          camera_depth_optical_frame:
+                            {}
+                laser:
+                  {}
+                left_wheel:
+                  {}
+                right_wheel:
+                  {}
+            odom_ned:
+              {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -502,7 +460,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 1.0225117206573486
+      Distance: 1.096722960472107
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -518,9 +476,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5149990916252136
+      Pitch: 0.41999921202659607
       Target Frame: base_link
-      Yaw: 3.7267558574676514
+      Yaw: 2.066756248474121
     Saved: ~
 Window Geometry:
   Displays:
