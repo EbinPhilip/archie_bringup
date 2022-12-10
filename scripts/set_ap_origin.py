@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 
 # Copied from https://github.com/anbello/aruco_gridboard/blob/master/script/set_origin.py
 
