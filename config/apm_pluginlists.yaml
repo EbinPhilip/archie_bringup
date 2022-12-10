@@ -11,6 +11,46 @@ plugin_blacklist:
 - px4flow
 - vibration
 - vision_speed_estimate
+- fake_gps
+- landing
+- 3dr_radio
+- adsb
+- camera
+- cam_imu_sync
+- distance_sensor
+- esc_status
+- esc_telemetry
+- geofence
+- global_position
+- gps_input
+- gps_rtk
+- gps_status
+- landing_target
+- log_transfer
+- mag_calibration_status
+- manual_control # needed?
+- mocap_pose_estimate
+- mount_control
+- nav_controller_output
+- obstacle_distance
+- play_tune
+- rallypoint
+- rangefinder
+- setpoint_accel
+- setpoint_attitude
+- setpoint_position
+- setpoint_raw
+- setpoint_trajectory
+- terrain
+- trajectory
+- tunnel
+- vfr_hud
+- waypoint
+- wind_estimation
+- companion_process_status
+- onboard_computer_status
+
+
 # - wheel_odometry
 
 plugin_whitelist: []

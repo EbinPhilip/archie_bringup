@@ -10,8 +10,8 @@ conn:
   heartbeat_rate: 1.0    # send hertbeat rate in Hertz
   heartbeat_mav_type: "ONBOARD_CONTROLLER"
   timeout: 10.0          # hertbeat timeout in seconds
-  timesync_rate: 0.2    # TIMESYNC rate in Hertz (feature disabled if 0.0)
-  system_time_rate: 0.5  # send system time to FCU rate in Hertz (disabled if 0.0)
+  timesync_rate: 0.2     # TIMESYNC rate in Hertz (feature disabled if 0.0)
+  system_time_rate: 1.0  # send system time to FCU rate in Hertz (disabled if 0.0)
 
 # sys_status
 sys:
@@ -26,9 +26,9 @@ time:
 
 # --- mavros plugins (alphabetical order) ---
 
-# 3dr_radio
-tdr_radio:
-  low_rssi: 40  # raw rssi lower level for diagnostics
+# # 3dr_radio
+# tdr_radio:
+#   low_rssi: 40  # raw rssi lower level for diagnostics
 
 # actuator_control
 # None
@@ -80,14 +80,14 @@ local_position:
 # rc_io
 # None
 
-# safety_area
-safety_area:
-  p1: {x:  1.0, y:  1.0, z:  1.0}
-  p2: {x: -1.0, y: -1.0, z: -1.0}
+# # safety_area
+# safety_area:
+#   p1: {x:  1.0, y:  1.0, z:  1.0}
+#   p2: {x: -1.0, y: -1.0, z: -1.0}
 
-# setpoint_accel
-setpoint_accel:
-  send_force: false
+# # setpoint_accel
+# setpoint_accel:
+#   send_force: false
 
 # setpoint_attitude
 setpoint_attitude:
@@ -99,9 +99,9 @@ setpoint_attitude:
     child_frame_id: "target_attitude"
     rate_limit: 50.0
 
-# setpoint_raw
-setpoint_raw:
-  thrust_scaling: 1.0       # specify thrust scaling (normalized, 0 to 1) for thrust (like PX4)
+# # setpoint_raw
+# setpoint_raw:
+#   thrust_scaling: 1.0       # specify thrust scaling (normalized, 0 to 1) for thrust (like PX4)
 
 # setpoint_position
 setpoint_position:
@@ -119,11 +119,11 @@ setpoint_velocity:
 # vfr_hud
 # None
 
-# waypoint
-mission:
-  pull_after_gcs: true  # update mission if gcs updates
-  use_mission_item_int: true # use the MISSION_ITEM_INT message instead of MISSION_ITEM
-                             # for uploading waypoints to FCU
+# # waypoint
+# mission:
+#   pull_after_gcs: true  # update mission if gcs updates
+#   use_mission_item_int: true # use the MISSION_ITEM_INT message instead of MISSION_ITEM
+#                              # for uploading waypoints to FCU
                              
 # --- mavros extras plugins (same order) ---
 
@@ -137,76 +137,57 @@ mission:
 ## Currently available orientations:
 #    Check http://wiki.ros.org/mavros/Enumerations
 ##
-distance_sensor:
-  rangefinder_pub:
-    id: 0
-    frame_id: "lidar"
-    #orientation: PITCH_270 # sended by FCU
-    field_of_view: 0.0  # XXX TODO
-    send_tf: false
-    sensor_position: {x:  0.0, y:  0.0, z:  -0.1}
-  rangefinder_sub:
-    subscriber: true
-    id: 1
-    orientation: PITCH_270  # only that orientation are supported by APM 3.4+
+# distance_sensor:
+#   rangefinder_pub:
+#     id: 0
+#     frame_id: "lidar"
+#     #orientation: PITCH_270 # sended by FCU
+#     field_of_view: 0.0  # XXX TODO
+#     send_tf: false
+#     sensor_position: {x:  0.0, y:  0.0, z:  -0.1}
+#   rangefinder_sub:
+#     subscriber: true
+#     id: 1
+#     orientation: PITCH_270  # only that orientation are supported by APM 3.4+
 
-# image_pub
-image:
-  frame_id: "px4flow"
+# # image_pub
+# image:
+#   frame_id: "px4flow"
 
 # fake_gps
-fake_gps:
-  # select data source
-  use_mocap: true         # ~mocap/pose
-  mocap_transform: false  # ~mocap/tf instead of pose
-  mocap_withcovariance: false  # ~mocap/pose uses PoseWithCovarianceStamped Message
-  use_vision: false       # ~vision (pose)
-  use_hil_gps: true
-  gps_id: 4
-  # origin (default: Zürich)
-  geo_origin:
-    lat: 47.3667          # latitude [degrees]
-    lon: 8.5500           # longitude [degrees]
-    alt: 408.0            # altitude (height over the WGS-84 ellipsoid) [meters]
-  eph: 2.0
-  epv: 2.0
-  horiz_accuracy: 0.5
-  vert_accuracy: 0.5
-  speed_accuracy: 0.0
-  satellites_visible: 6   # virtual number of visible satellites
-  fix_type: 3             # type of GPS fix (default: 3D)
-  tf:
-    listen: false
-    send: false           # send TF?
-    frame_id: "map"       # TF frame_id
-    child_frame_id: "fix" # TF child_frame_id
-    rate_limit: 10.0      # TF rate
-  gps_rate: 5.0           # GPS data publishing rate
-
-# landing_target
-landing_target:
-  listen_lt: false
-  mav_frame: "LOCAL_NED"
-  land_target_type: "VISION_FIDUCIAL"
-  image:
-    width: 640            # [pixels]
-    height: 480
-  camera:
-    fov_x: 2.0071286398   # default: 115 [degrees]
-    fov_y: 2.0071286398
-  tf:
-    send: true
-    listen: false
-    frame_id: "landing_target"
-    child_frame_id: "camera_center"
-    rate_limit: 10.0
-  target_size: {x:  0.3, y:  0.3}
+# fake_gps:
+#   # select data source
+#   use_mocap: false         # ~mocap/pose
+#   mocap_transform: false  # ~mocap/tf instead of pose
+#   mocap_withcovariance: false  # ~mocap/pose uses PoseWithCovarianceStamped Message
+#   use_vision: true       # ~vision (pose)
+#   use_hil_gps: false
+#   gps_id: 4
+#   # origin (default: Zürich)
+#   geo_origin:
+#     lat: 47.3667          # latitude [degrees]
+#     lon: 8.5500           # longitude [degrees]
+#     alt: 408.0            # altitude (height over the WGS-84 ellipsoid) [meters]
+#   eph: 2.0
+#   epv: 2.0
+#   horiz_accuracy: 0.5
+#   vert_accuracy: 0.5
+#   speed_accuracy: 0.0
+#   satellites_visible: 6   # virtual number of visible satellites
+#   fix_type: 3             # type of GPS fix (default: 3D)
+#   tf:
+#     listen: false
+#     send: false           # send TF?
+#     frame_id: "map"       # TF frame_id
+#     child_frame_id: "fix" # TF child_frame_id
+#     rate_limit: 10.0      # TF rate
+#   gps_rate: 5.0           # GPS data publishing rate
 
 # mocap_pose_estimate
-mocap:
-  # select mocap source
-  use_tf: false   # ~mocap/tf
-  use_pose: true  # ~mocap/pose
+# mocap:
+#   # select mocap source
+#   use_tf: false   # ~mocap/tf
+#   use_pose: true  # ~mocap/pose
 
 # odom
 odometry:
@@ -214,29 +195,22 @@ odometry:
     desired_frame: "ned"
   estimator_type: 3 # check enum MAV_ESTIMATOR_TYPE in <https://mavlink.io/en/messages/common.html>
 
-# px4flow
-px4flow:
-  frame_id: "px4flow"
-  ranger_fov: 0.118682      # 6.8 degrees at 5 meters, 31 degrees at 1 meter
-  ranger_min_range: 0.3     # meters
-  ranger_max_range: 5.0     # meters
-
 # vision_pose_estimate
 vision_pose:
   tf:
     listen: true           # enable tf listener (disable topic subscribers)
-    frame_id: "map"
-    child_frame_id: "vision_estimate"
+    frame_id: "odom"
+    child_frame_id: "base_footprint"
     rate_limit: 20.0
 
-# vision_speed_estimate
-vision_speed:
-  listen_twist: true    # enable listen to twist topic, else listen to vec3d topic
-  twist_cov: true       # enable listen to twist with covariance topic
+# # vision_speed_estimate
+# vision_speed:
+#   listen_twist: true    # enable listen to twist topic, else listen to vec3d topic
+#   twist_cov: true       # enable listen to twist with covariance topic
 
-# vibration
-vibration:
-  frame_id: "base_link"
+# # vibration
+# vibration:
+#   frame_id: "base_link"
 
 # wheel_odometry
 wheel_odometry:
