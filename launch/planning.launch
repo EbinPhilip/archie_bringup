@@ -19,7 +19,7 @@
     
       <!-- Run Rviz and load the default config to see the state of the move_group node -->
     <include file="$(find archie_moveit_config)/launch/moveit_rviz.launch">
-        <arg name="rviz_config" value="$(dirname)/moveit.rviz"/>
+        <arg name="rviz_config" value="$(find archie_bringup)/config/moveit.rviz"/>
     </include>
 
 </launch>
