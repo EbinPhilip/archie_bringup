@@ -1,5 +1,5 @@
 <launch>
-    <arg name="map_file" default="$(find archie_bringup)/maps/my_map.yaml" />
+    <arg name="map_file" default="$(find archie_bringup)/maps/new_map.yaml" />
 
     <include file="$(find archie_bringup)/launch/robot.launch" />
     <include file="$(find archie_bringup)/launch/_amcl.launch" />
